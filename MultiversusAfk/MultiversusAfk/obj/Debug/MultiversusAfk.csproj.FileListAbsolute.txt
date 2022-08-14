@@ -1,0 +1,11 @@
+C:\Users\Admin\source\repos\MultiversusAfk\MultiversusAfk\bin\Debug\MultiversusAfk.exe.config
+C:\Users\Admin\source\repos\MultiversusAfk\MultiversusAfk\bin\Debug\MultiversusAfk.exe
+C:\Users\Admin\source\repos\MultiversusAfk\MultiversusAfk\bin\Debug\MultiversusAfk.pdb
+C:\Users\Admin\source\repos\MultiversusAfk\MultiversusAfk\obj\Debug\MultiversusAfk.csproj.AssemblyReference.cache
+C:\Users\Admin\source\repos\MultiversusAfk\MultiversusAfk\obj\Debug\MultiversusAfk.csproj.SuggestedBindingRedirects.cache
+C:\Users\Admin\source\repos\MultiversusAfk\MultiversusAfk\obj\Debug\MultiversusAfk.Form1.resources
+C:\Users\Admin\source\repos\MultiversusAfk\MultiversusAfk\obj\Debug\MultiversusAfk.Properties.Resources.resources
+C:\Users\Admin\source\repos\MultiversusAfk\MultiversusAfk\obj\Debug\MultiversusAfk.csproj.GenerateResource.cache
+C:\Users\Admin\source\repos\MultiversusAfk\MultiversusAfk\obj\Debug\MultiversusAfk.csproj.CoreCompileInputs.cache
+C:\Users\Admin\source\repos\MultiversusAfk\MultiversusAfk\obj\Debug\MultiversusAfk.exe
+C:\Users\Admin\source\repos\MultiversusAfk\MultiversusAfk\obj\Debug\MultiversusAfk.pdb
