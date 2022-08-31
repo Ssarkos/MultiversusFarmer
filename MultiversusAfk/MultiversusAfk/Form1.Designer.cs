@@ -34,11 +34,14 @@
             this.lblGames = new System.Windows.Forms.Label();
             this.btnStop = new System.Windows.Forms.Button();
             this.btnChar = new System.Windows.Forms.ComboBox();
+            this.lblDelay = new System.Windows.Forms.Label();
+            this.btnDelay = new System.Windows.Forms.NumericUpDown();
+            ((System.ComponentModel.ISupportInitialize)(this.btnDelay)).BeginInit();
             this.SuspendLayout();
             // 
             // btnStart
             // 
-            this.btnStart.Location = new System.Drawing.Point(82, 99);
+            this.btnStart.Location = new System.Drawing.Point(82, 109);
             this.btnStart.Name = "btnStart";
             this.btnStart.Size = new System.Drawing.Size(75, 23);
             this.btnStart.TabIndex = 4;
@@ -58,7 +61,7 @@
             // lblChar
             // 
             this.lblChar.AutoSize = true;
-            this.lblChar.Location = new System.Drawing.Point(88, 28);
+            this.lblChar.Location = new System.Drawing.Point(92, 8);
             this.lblChar.Name = "lblChar";
             this.lblChar.Size = new System.Drawing.Size(53, 13);
             this.lblChar.TabIndex = 7;
@@ -75,7 +78,7 @@
             // 
             // btnStop
             // 
-            this.btnStop.Location = new System.Drawing.Point(82, 99);
+            this.btnStop.Location = new System.Drawing.Point(82, 109);
             this.btnStop.Name = "btnStop";
             this.btnStop.Size = new System.Drawing.Size(75, 23);
             this.btnStop.TabIndex = 5;
@@ -105,7 +108,7 @@
             "Tom & Jerry",
             "Velma",
             "Wonder Woman"});
-            this.btnChar.Location = new System.Drawing.Point(55, 44);
+            this.btnChar.Location = new System.Drawing.Point(57, 24);
             this.btnChar.MaxDropDownItems = 20;
             this.btnChar.Name = "btnChar";
             this.btnChar.Size = new System.Drawing.Size(121, 21);
@@ -113,11 +116,46 @@
             this.btnChar.Text = "Random";
             this.btnChar.SelectedIndexChanged += new System.EventHandler(this.btnChar_SelectedIndexChanged);
             // 
+            // lblDelay
+            // 
+            this.lblDelay.AutoSize = true;
+            this.lblDelay.Location = new System.Drawing.Point(88, 58);
+            this.lblDelay.Name = "lblDelay";
+            this.lblDelay.Size = new System.Drawing.Size(61, 13);
+            this.lblDelay.TabIndex = 10;
+            this.lblDelay.Text = "Extra Delay";
+            // 
+            // btnDelay
+            // 
+            this.btnDelay.DecimalPlaces = 1;
+            this.btnDelay.Increment = new decimal(new int[] {
+            5,
+            0,
+            0,
+            65536});
+            this.btnDelay.Location = new System.Drawing.Point(58, 73);
+            this.btnDelay.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.btnDelay.Minimum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            -2147483648});
+            this.btnDelay.Name = "btnDelay";
+            this.btnDelay.Size = new System.Drawing.Size(120, 20);
+            this.btnDelay.TabIndex = 11;
+            this.btnDelay.ValueChanged += new System.EventHandler(this.btnDelay_ValueChanged);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(231, 145);
+            this.Controls.Add(this.btnDelay);
+            this.Controls.Add(this.lblDelay);
             this.Controls.Add(this.btnStart);
             this.Controls.Add(this.lblTime);
             this.Controls.Add(this.lblChar);
@@ -130,6 +168,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.btnDelay)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -143,6 +182,8 @@
         private System.Windows.Forms.Label lblGames;
         private System.Windows.Forms.Button btnStop;
         private System.Windows.Forms.ComboBox btnChar;
+        private System.Windows.Forms.Label lblDelay;
+        private System.Windows.Forms.NumericUpDown btnDelay;
     }
 }
 

@@ -48,6 +48,7 @@ namespace MultiversusAfk
         int gamesPlayed = 0;
         int stepsX = 0;
         int stepsY = 0;
+        int delay = 0;
 
         public Form1()
         {
@@ -72,6 +73,8 @@ namespace MultiversusAfk
             btnStart.Show();
             btnChar.Show();
             lblChar.Show();
+            btnDelay.Show();
+            lblDelay.Show();
 
             btnStop.Hide();
             lblGames.Hide();
@@ -83,6 +86,9 @@ namespace MultiversusAfk
             btnStart.Hide();
             btnChar.Hide();
             lblChar.Hide();
+            btnDelay.Hide();
+            lblDelay.Hide();
+
 
             btnStop.Show();
             lblGames.Show();
@@ -106,6 +112,7 @@ namespace MultiversusAfk
             {
                 TimeSpan time = TimeSpan.FromSeconds((DateTime.Now - start).TotalSeconds);
                 lblTime.Text = time.ToString(@"hh\:mm\:ss");
+                lblGames.Text = "Matches Played: " + gamesPlayed;
                 Thread.Sleep(50);
             }
         }
@@ -129,90 +136,75 @@ namespace MultiversusAfk
 
             while (true)
             {
-                //for (int j = 0; j < 2; j++)
-                //{
-                    lblGames.Text = "Matches Played: " + gamesPlayed;                   
+                //1 + 17*0.01 + 7*0.01 + 50 + 7*1.4 + 79*0.5 + 9
+                
+                for (int i = 0; i < 30; i++)
+                {
+                    presskey(S, hwnd);
+                    presskey(D, hwnd);
+                    Thread.Sleep(20);
+                }
 
-                    Thread.Sleep(1000);
-                    for (int i = 0; i < 17; i++)
-                    {
-                        presskey(S, hwnd);
-                        presskey(D, hwnd);
-                        Thread.Sleep(30);
-                    }
+                for (int i = 0; i < stepsX; i++)
+                {
+                    presskey(A, hwnd);
+                    Thread.Sleep(30);
+                }
 
-                    for (int i = 0; i < stepsX; i++)
-                    {
-                        presskey(A, hwnd);
-                        Thread.Sleep(30);
-                    }
+                for (int i = 0; i < stepsY; i++)
+                {
+                    presskey(W, hwnd);
+                    Thread.Sleep(30);
+                }
 
-                    for (int i = 0; i < stepsY; i++)
-                    {
-                        presskey(W, hwnd);
-                        Thread.Sleep(30);
-                    }
+                for (int i = 0; i < 4; i++)
+                {
+                    presskey(Space, hwnd);
+                }
+                Thread.Sleep(200);
+                for (int i = 0; i < 4; i++)
+                {
+                    presskey(V, hwnd);
 
-                    for (int i = 0; i < 4; i++)
-                    {
-                        presskey(Space, hwnd);
-                    }
-                    Thread.Sleep(300);
-                    for (int i = 0; i < 4; i++)
-                    {
-                        presskey(V, hwnd);
-  
-                    }
+                }
 
-                    /*if (j == 0)
-                    {
-                        Thread.Sleep(17000);
-                    }
-                    else
-                    {
-                        Thread.Sleep(10000);
-                    }*/
+                Thread.Sleep(18000 + delay);
 
-                    Thread.Sleep(16000);
+                for (int i = 0; i < 20; i++)
+                {
+                    presskey(V, hwnd);
+                    Thread.Sleep(100);
+                }
 
-                    for (int i = 0; i < 20; i++)
-                    {
-                        presskey(V, hwnd);
-                        Thread.Sleep(100);
-                    }
+                Thread.Sleep(31000 + delay);
 
-                    Thread.Sleep(31000);
+                for (int i = 0; i < 7; i++)
+                {
+                    presskey(O, hwnd);
+                    presskey(P, hwnd);
+                    Thread.Sleep(500);
+                    presskey(P, hwnd);
+                    Thread.Sleep(900);
+                }
 
-                    for (int i = 0; i < 7; i++)
-                    {
-                        presskey(O, hwnd);
-                        presskey(P, hwnd);
-                        Thread.Sleep(500);
-                        presskey(P, hwnd);
-                        Thread.Sleep(900);
-                    }
+                for (int i = 0; i < 72; i++)
+                {
+                    PostMessage(hwnd, WM_KEYDOWN, A, 0);
+                    presskey(P, hwnd);
+                    Thread.Sleep(500);
+                }
+                PostMessage(hwnd, WM_KEYUP, A, 0);
 
-                    for (int i = 0; i < 55; i++)
-                    {
-                        PostMessage(hwnd, WM_KEYDOWN, A, 0);
-                        presskey(P, hwnd);
-                        Thread.Sleep(500);
-                    }
-                    PostMessage(hwnd, WM_KEYUP, A, 0);
+                gamesPlayed++;
 
-                    Thread.Sleep(12000);
+                for (int i = 0; i < 20; i++)
+                {
+                    presskey(V, hwnd);
+                    presskey(Space, hwnd);
+                    Thread.Sleep(100);
+                }
 
-                    for (int i = 0; i < 30; i++)
-                    {
-                        presskey(V, hwnd);
-                        presskey(Space, hwnd);
-                        Thread.Sleep(100);
-                    }
-
-                    Thread.Sleep(5000);
-
-                    gamesPlayed++;
-                //}
+                Thread.Sleep(10000 + delay);
             }
         }
 
@@ -225,7 +217,7 @@ namespace MultiversusAfk
         private void presskey(IntPtr key, IntPtr hwnd)
         {
             PostMessage(hwnd, WM_KEYDOWN, key, 0);
-            Thread.Sleep(10);
+            Thread.Sleep(3);
             PostMessage(hwnd, WM_KEYUP, key, 0);
         }
 
@@ -327,6 +319,11 @@ namespace MultiversusAfk
                 stepsX = 0;
                 stepsY = 0;
             }
+        }
+
+        private void btnDelay_ValueChanged(object sender, EventArgs e)
+        {
+            delay = (int)(btnDelay.Value * 1000);
         }
     }
 }
